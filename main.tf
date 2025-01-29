@@ -9,9 +9,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "s3-tfstate-statestoragebucket-cpoanqxuq8g1"
+    bucket         = "s3-tfstate-statestoragebucket-xecyccxnppxt"
     key            = "simple-scoreboard.tfstate"
-    dynamodb_table = "s3-tfstate-StateLockingTable-IKBYGM4LII9M"
+    dynamodb_table = "s3-tfstate-StateLockingTable-1WZ815Z6FH00M"
   }
 }
 
