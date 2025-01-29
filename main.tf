@@ -8,11 +8,10 @@ terraform {
     }
   }
 
-  # NOTE: Don't forget to change the bucket and table names!
   backend "s3" {
-    bucket         = "s3-tfstate-statestoragebucket-xecyccxnppxt"
+    bucket         = "s3-tfstate-statestoragebucket-cpoanqxuq8g1"
     key            = "simple-scoreboard.tfstate"
-    dynamodb_table = "s3-tfstate-StateLockingTable-1WZ815Z6FH00M"
+    dynamodb_table = "s3-tfstate-StateLockingTable-IKBYGM4LII9M"
   }
 }
 
@@ -98,7 +97,7 @@ resource "aws_lambda_function" "this" {
   role             = aws_iam_role.this.arn
   filename         = "lambda-function.zip"
   source_code_hash = filebase64sha256("lambda-function.zip")
-  handler          = "lambda_function.lambda_handler"
+  handler          = "simple_scoreboard.lambda_handler"
   runtime          = "python3.12"
   architectures    = ["x86_64"]
 
